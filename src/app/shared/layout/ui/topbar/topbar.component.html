@@ -1,0 +1,15 @@
+<!-- @let user = user$ | async; -->
+<header
+  class="h-16 py-6 w-full right-0 left-0 flex flex-col text-base justify-center z-20 font-satoshi fixed shadow-md bg-white text-gray-800 animate-fadeInUp">
+  <nav class="flex justify-between items-center w-full px-8 md:mx-auto md:max-w-screen-lg md:px-0">
+    <a routerLink="/" class="block font-extrabold text-primary-500 text-2xl"> Luapula </a>
+    <div class="flex items-center gap-2">
+      <a
+        href="tel:+243999999999"
+        class="hidden md:block text-gray-500 hover:text-primary-500 transition-all duration-200">
+        +243 999 999 999
+      </a>
+      <a [routerLink]="['/calls']" class="primary-link">Se connecter</a>
+    </div>
+  </nav>
+</header>
