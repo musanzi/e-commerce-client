@@ -6,21 +6,23 @@
         <app-product-card-skeleton />
       }
     </div>
-
-    <div class="card flex justify-center">
-      <p-paginator
-        (onPageChange)="onPageChange($event)"
-        [first]="first"
-        [rows]="rows"
-        [totalRecords]="120"
-        [rowsPerPageOptions]="[10, 20, 30]" />
-    </div>
   }
   @if (products?.data) {
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-      @for (p of products.data; track $index) {
+      @for (
+        p of products?.data
+          | paginate: { itemsPerPage: 12, currentPage: currentPage(), totalItems: products?.data?.length };
+        track p.id
+      ) {
         <app-product-card [product]="p" />
       }
     </div>
+
+    @if (products?.data?.length > 12) {
+      <div class="flex justify-center mt-12">
+        <pagination-controls nextLabel="" previousLabel="" [maxSize]="5" (pageChange)="onPageChange($event)" class="pg">
+        </pagination-controls>
+      </div>
+    }
   }
 </section>

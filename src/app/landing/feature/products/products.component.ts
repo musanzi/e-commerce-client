@@ -1,30 +1,29 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ProductsService } from 'app/landing/data-access/products.service';
 import { IAPIResponse } from 'app/shared/services/api/types/api-response.type';
 import { IProduct } from 'app/shared/utils/types/models.type';
 import { Observable } from 'rxjs';
 import { ProductCardComponent } from '../../ui/product-card/product-card.component';
 import { ProductCardSkeletonComponent } from '../../ui/product-card-skeleton/product-card-skeleton.component';
-import { PaginatorModule, PaginatorState } from 'primeng/paginator';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-products',
-  imports: [CommonModule, ProductCardComponent, PaginatorModule, ProductCardSkeletonComponent],
+  imports: [CommonModule, ProductCardComponent, ProductCardSkeletonComponent, NgxPaginationModule],
   templateUrl: './products.component.html'
 })
 export class ProductsComponent implements OnInit {
   #productsService = inject(ProductsService);
   products$: Observable<IAPIResponse<IProduct[]>>;
-  first = 0;
-  rows = 10;
+  currentPage = signal(1);
 
   ngOnInit(): void {
     this.products$ = this.#productsService.getProducts();
   }
 
-  onPageChange(event: PaginatorState): void {
-    this.first = event.first ?? 0;
-    this.rows = event.rows ?? 10;
+  onPageChange(page: number): void {
+    this.currentPage.set(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
