@@ -16,7 +16,7 @@ export interface IUser extends IBase {
   roles: IRole[];
 }
 
-export interface Product extends IBase {
+export interface IProduct extends IBase {
   name: string;
   slug: string;
   price: number;

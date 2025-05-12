@@ -1,0 +1,104 @@
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.29/product-card.component.html"
+<div *ngIf="product"
+     class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out group">
+
+  <!-- Product Image -->
+  <div class="relative overflow-hidden">
+    <img [src]="product.imageUrl"
+         [alt]="product.name"
+         class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out">
+    2a1 1 0 00.95.69h3.462c.<!-- Optional: Add a badge/tag like "New" or "Sale" -->
+    <!-- <span class="absolute top-2 left-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">Sale</span> -->
+  </div>
+
+  <!-- Product Details -->
+  <div class="p-4">
+    969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.<!-- Product Name -->
+    <h3 class="text-lg font-semibold text-gray-800755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 mb-1 truncate" [title]="product.name">
+      {{ product.name }}
+    </h3>
+
+    <!-- Optional: Rating -->
+    <div *ngIf="product.rating !== undefined" class="flex items-center mb-2 text-sm text-gray-600">
+      <div class="flex text-yellow-4 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a100 mr-1">
+        <ng-container *ngFor="let starType of getStarRating(product.rating)">
+          <!-- Replace with actual SVG icons for better results -->
+          <span *ngIf="starType === 'full'">★</span>
+          <span *ngIf="starType === 'half'">☆</span> <!-- Placeholder for half star -->
+          <span *ngIf="starType === 'empty'" class="text-gray-300">☆</span>
+        </ng-container>
+      </div>
+      <span *ngIf="product.reviews">({{ product.reviews }})</span>
+    </div>
+
+    <!-- Description (Short) -->
+    <p class="text-sm text-gray-600 mb-3 line-clamp-2" [title]="product.description">
+      {{ 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+          </svg>
+          <span>{{ product.rating.toFixed(1) }}</span>
+          <span class="mx-1">·</span>
+          <span>{{ product.review product.description }}
+    </p>
+
+    <!-- Price and Action -->
+    <div class="flex items-center justify-between">
+      <span class="text-xl font-bold text-gray-900">
+        ${{ product.price.toFixed(2) }}
+      </span>
+      <button (click)="onAddToCartClick()"
+              class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Optional: Add a loading state or placeholder -->
+<div *ngIf="!product"
+     class="bg-white rounded-lg shadow-md overflow-hidden animate-pulse">
+  <div class="w-full h-48 bg-gray-300"></div>
+  <div class="p-4">
+    <div class="h-6 bg-gray-300 rounded w-3/4 mb-2"></div>
+    <div class="h-4 bg-gray-300 rounded w-1/2 mb-3"></div>
+    <div class="h-4 bg-gray-300 rounded w-full mb-1"></div>
+    <div class="h-4 bg-gray-300 rounded w-5/6 mb-4"></div>
+    <div class="flex items-center justify-between">
+      <div class="h-Count }} reviews</span>
+        </div>
+
+        <!-- Optional: Description -->
+        <p *ngIf="product.description" class="text-sm text-gray-600 mb-3 h-10 overflow-hidden text-ellipsis">
+          {{ product.description }}
+        </p>
+
+        <!-- Price -->
+        <div class="text-xl font-bold text-gray-900 mb-3">
+          {{ product.currencySymbol || '$' }}{{ product.price.toFixed(2) }}
+        </div>
+
+        <!-- Action Button -->
+        <button
+          type="button"
+          class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200 ease-in-out"
+          (click)="addToCart()"
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  `,
+  styles: [`
+    /* Add any component-specific styles here if needed, */
+    /* but prefer Tailwind classes in the template. */
+    /* Example: Ensure consistent height for description */
+    p {
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* Limit to 2 lines */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-height: 2.5rem; /* Adjust based on line-height if8 bg-gray-300 rounded w-1/4"></div>
+      <div class="h-10 bg-gray-400 rounded-lg w-1/3"></div>
+    </div>
+  </div>
+</div>

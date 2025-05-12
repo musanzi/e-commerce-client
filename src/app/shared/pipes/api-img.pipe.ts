@@ -11,8 +11,7 @@ export class ApiImgPipe implements PipeTransform {
       user: value['profile']
         ? `${apiUrl}uploads/profiles/${value['profile']}`
         : (value['google_image'] ?? '/images/avatar.webp'),
-      solution: value['image'] ? `${apiUrl}uploads/solutions/${value['image']}` : '/images/no-img.png',
-      call: value['image'] ? `${apiUrl}uploads/uploads/calls/covers/${value['image']}` : '/images/no-img.png'
+      product: value['images'][0] ? `${apiUrl}uploads/solutions/${value['images'][0]}` : '/images/default-product'
     };
     return images[key];
   }
